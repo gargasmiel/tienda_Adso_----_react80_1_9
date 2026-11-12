@@ -14,17 +14,7 @@ function App() {
       <Route
         path="/dashboard"
         element={
-          usuario ? (
-            <main className="container py-5">
-              <h1 className="h3">Inventario React</h1>
-              <p>Bienvenido, {usuario.nombre}.</p>
-              <button className="btn btn-outline-primary" onClick={cerrarSesion}>
-                Cerrar sesion
-              </button>
-            </main>
-          ) : (
-            <Navigate to="/login" replace />
-          )
+          usuario ? <main className="container py-5"></main> : <Navigate to="/login" replace />
         }
       />
       <Route path="*" element={<Navigate to="/login" replace />} />
