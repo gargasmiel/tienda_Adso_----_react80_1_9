@@ -48,6 +48,12 @@ react solo se encarga de la interfaz grafica para el resto utilizamos:
 **axios** para hablar entre frontend y el backend
 **react-router-dom* para las rutas 
 
+# PREPARAR LA BASE DE DATOS
+1. Inicia MySQL desde XAMPP.
+2. En phpMyAdmin, abre **Importar** y ejecuta `backend/database/inventario_react.sql`. Esto crea la base de datos y la tabla `usuarios`.
+3. Desde la carpeta `backend`, ejecuta `npm run seed` para crear el administrador de prueba. Por defecto, las credenciales están en `backend/.env` (`admin@inventario.com` / `Admin123!`).
+4. Inicia el backend con `npm run dev`.
+
 # PASOS PARA CREAR EL PROYECTO
 
 -1 Verificar que tenga node.js (node -v) cmd

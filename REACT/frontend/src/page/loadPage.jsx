@@ -48,7 +48,7 @@ function LoginPage() {
         }catch (err) {
             // si el backend respondio un mensaje error (401, 403 ...)
             // axios los deja disponible en err.response.data.mensaje
-            const mensajeBackend = err?.response?.data?.mensaje;
+            const mensajeBackend = err?.response?.data?.mensaje || err?.response?.data?.message;
             setError(mensajeBackend || "no se pudo conectar con el servior. Verifica que el backend este corriendo");
         }finally {
             // finally se ejecuta siempre (haya exito o error reactivamos el boton)
@@ -79,6 +79,7 @@ function LoginPage() {
                             placeholder="admin@inventario.com"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
+                            autoComplete="username"
                             required
                             autoFocus
                         />
@@ -91,6 +92,7 @@ function LoginPage() {
                             className="form-control"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            autoComplete="current-password"
                             required
                         />
                     </div>
