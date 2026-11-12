@@ -72,3 +72,14 @@ cd
 --9.2 src/api/authService.js
 --9.3 src/context/authContext.jsx
 --9.4 src/page/loadPage.jsx
+
+--10 
+
+--10.1 frontend/src/routes/ProctetedRoutes.jsx
+    --frontend/src/layoust/DahsboardLayout. jsx
+    -- ""/""/components/Common/Sidebar.jsx
+    -- ""/""/components/Common/Topbar.jsx
+    --""/""/pages/DashboardHome.jsx
+    --""/""/NotFoundpage.jsx
+    --editar ""/""/app.jsx
+    

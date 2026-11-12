@@ -13,7 +13,7 @@ import axios from 'axios';
 * pero vamos a dejar fija apuntando al backend
 */
 
-const API_URL = 'http//localhost:4000/api';
+const API_URL = 'http://localhost:4000/api';
 //axios.create genera una instancia propia distinta del axios global 
 //con configiracion ya lista para usar en toda la aplicacion
 const axiosClient = axios.create({

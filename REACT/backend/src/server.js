@@ -11,7 +11,7 @@ const cors = require("cors");
 //lee el archivo .env y carga susvalores en process.env
 require("dotenv").config();
 //importemos el router con los endpoints de la api
-const authrouter = require("./routes/auth.routes");
+const authrouter = require("./routes/authroutes");
 //creemos la applicacion express
 const app = express();
 // cors() permite que el frontend (que corre en otro puerto)

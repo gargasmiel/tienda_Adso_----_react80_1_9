@@ -8,11 +8,11 @@ el usuario en mysql  comparar la contraseña
 */
 
 //LIBRERIA PARA ENCRIPTAR  y comparar la contraseña
-const bcrypt =require('bcrypt');
+const bcrypt =require('bcryptjs');
 //librebria para crear (frimar) tokens jwt de sesion
 const jwt =require('jsonwebtoken');
 //pool para conexiones mysql configurado en config/db.js
-const pool =require('../config/bd');
+const pool =require('../config/db');
 //carga las variables de .env(JWT_SECRET, JWT_EXPIRES_IN)
 require('dotenv').config();
 
@@ -35,7 +35,7 @@ async function login(req, res) {
     //usamos "?" en la consulta (no contatenamos el email directo )
     //para evitar la inyeccion sql: mysql2 se encarga de escaparlo
     const [filas] = await pool.query(
-        'select id, nombre, email, password, rol, estado from usuarios where email = ? limit 1, ', [email]
+        'select id, nombre, email, password, rol, estado from usuarios where email = ? limit 1', [email]
     );
     // si no encontro ninguna fila, el correo no existe
     if (filas.length ===0){

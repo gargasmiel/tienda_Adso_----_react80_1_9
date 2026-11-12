@@ -11,15 +11,15 @@ const mysqly = require('mysql2/promise');
 require('dotenv').config();
 
 //createPool crea un conjunto de conexiones reutilizables
-const pool = mysqly.createPoolCluster({
+const pool = mysqly.createPool({
     host: process.env.DB_HOST,//servidor de mysql
     port: process.env.DB_PORT,//puerto de mysql
     user: process.env.DB_USER,// usuario de mysql
     password: process.env.DB_PASSWORD,// contraseña de mysql
     database: process.env.DB_NAME,//nombre de la base de datos
-    wairForConnections: true,//si no hay conexiones libres
+    waitForConnections: true,//si no hay conexiones libres
     connectionLimit:10, //max de conexiones simultaneas
-    queuelimit:0,// sin limites de conexiones en espera
+    queueLimit:0,// sin limites de conexiones en espera
 });
 
 //exportamos el pool para poder hacer pool.query desde cualquier controlador
