@@ -2,12 +2,12 @@
 // Navigate sirve para redirigir
 import {Navigate, Route, Routes} from "react-router-dom"
 // Guardian que protege las rutas privadas del dashboard
-import ProtectedRoute from "./routes/ProtectedRoute";
+//import ProtectedRoute from "./routes/ProtectedRoute";
 // esqueleto visual (sidebar + topbar) que compartenlas paginas del dashboar
-import ProtectedRoute from "./routes/ProtectedRouted";
+//import ProtectedRoute from "./routes/ProtectedRouted";
 
 // Paginas publicas y privadas de la aplicacion
-import LoginPage  from "./page/LoginPage";
+import LoginPage from "./page/loadPage";
 
 function App() {
   
@@ -20,8 +20,8 @@ return (
       {/* ruta publica cualquiera puede entrar a login*/}
       <Route path="/login" element={<LoginPage />}/>
 
-      {/cualquier otra url que no coiuncida con las anteriores/}
-      <Route path="*" element={<NotFoundPage/>}/>
+      {/* cualquier otra url que no coincida con las anteriores */}
+      <Route path="*" element={<Navigate to="/login" replace />}/>
     </Routes>
 )
 }

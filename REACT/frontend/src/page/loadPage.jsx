@@ -11,14 +11,14 @@ import { useState } from "react";
 // Hook para redirijir por codigo despues de iniciar sesion
 import { useNavigate } from "react-router-dom";
 // Hook para llamar a login() del contexto global de sesion
- import { useAuth } from "../context2/AuthContext";
+import { useAuth } from "../context/authContext";
 
 // no recibira props es el element de la ruta / login en App.jsx
 function LoginPage() {
     // Traemos sola la funcion login() del contexto no se necesita mas
     const { login } = useAuth();
     // Funcion para cambiar la url una vez el login sea exitoso
-    const nagative = useNavigate();
+    const navigate = useNavigate();
 
     // estado del formulario controlado
     const [email, setEmail] = useState("");
@@ -44,7 +44,7 @@ function LoginPage() {
             await login (email, password);
 
             // si no lanzo error, las credenciales fueron correctas
-            Navigate("/dashboard", {replace:true});
+            navigate("/dashboard", {replace:true});
         }catch (err) {
             // si el backend respondio un mensaje error (401, 403 ...)
             // axios los deja disponible en err.response.data.mensaje
@@ -81,6 +81,17 @@ function LoginPage() {
                             onChange={(e) => setEmail(e.target.value)}
                             required
                             autoFocus
+                        />
+                    </div>
+
+                    <div className="mb-3">
+                        <label className="form-label">Contraseña</label>
+                        <input
+                            type="password"
+                            className="form-control"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
                         />
                     </div>
 
