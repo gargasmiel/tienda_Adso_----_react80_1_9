@@ -4,7 +4,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
 //habilita el amnajeo de las rutas 
-import { BrowserRouter } from 'react-router-dom'
+import {BrowserRouter, browserrouter} from 'react-router-dom'
 //estilos boostrap clases btn container tablas y demas
 import'bootstrap/dist/css/bootstrap.min.css';
 //iconos de booststrap clases como bi bi-trash
@@ -17,7 +17,7 @@ import './index.css'
 //componente raiz con todas las rutas de la aplicacion 
 import App from "./App.jsx";
 //proveedor cel contexto de sesion (ver context/authcontext.jsx)
-import { AuthProvider } from './context/authContext.jsx'
+import {AuthProvider} from './context/authcontext.jsx'
 //busca el <div id="root"> de index.html y engancha react ahi dentro
 
 
@@ -30,8 +30,9 @@ createRoot(document.getElementById('root')).render(
       quien es usuario logeado
       */}
       <AuthProvider>
-        <App />
+        <app/>
       </AuthProvider>
     </BrowserRouter>
+    <App />
   </StrictMode>,
 )
