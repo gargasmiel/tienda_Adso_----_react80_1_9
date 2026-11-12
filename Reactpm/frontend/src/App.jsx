@@ -1,28 +1,35 @@
 // piezas de react-router-dom Routes/route define el mapa de rutas
 // Navigate sirve para redirigir
-import {Navigate, Route, Routes} from "react-router-dom"
-// Guardian que protege las rutas privadas del dashboard
-import ProtectedRoute from "./routes/ProtectedRoute";
-// esqueleto visual (sidebar + topbar) que compartenlas paginas del dashboar
-import ProtectedRoute from "./routes/ProtectedRouted";
-
-// Paginas publicas y privadas de la aplicacion
-import LoginPage  from "./page/LoginPage";
+import { Navigate, Route, Routes } from "react-router-dom";
+import LoginPage from "./page/loadPage";
+import { useAuth } from "./context/useAuth";
 
 function App() {
-  
-return (
-    <Routes>
-      {/* ruta raiz: manda directo al login (si ya hay sesion,
-      protectedRoute se encarga de dejarlo pasar al dashboard*/}
-      <Route path="/" element={<Navigate to="login" replace />}/>
-      
-      {/* ruta publica cualquiera puede entrar a login*/}
-      <Route path="/login" element={<LoginPage />}/>
+  const { usuario, cerrarSesion } = useAuth();
 
-      {/cualquier otra url que no coiuncida con las anteriores/}
-      <Route path="*" element={<NotFoundPage/>}/>
+  return (
+    <Routes>
+      <Route path="/" element={<Navigate to="/login" replace />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route
+        path="/dashboard"
+        element={
+          usuario ? (
+            <main className="container py-5">
+              <h1 className="h3">Inventario React</h1>
+              <p>Bienvenido, {usuario.nombre}.</p>
+              <button className="btn btn-outline-primary" onClick={cerrarSesion}>
+                Cerrar sesion
+              </button>
+            </main>
+          ) : (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+      <Route path="*" element={<Navigate to="/login" replace />} />
     </Routes>
-)
+  );
 }
+
 export default App

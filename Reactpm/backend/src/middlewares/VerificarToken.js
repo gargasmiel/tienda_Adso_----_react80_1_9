@@ -16,17 +16,17 @@ require('dotenv').config();
 function  verificarToken(req, res, next){
     // el frontend debe enviar el token en header
     //authorization: bearer <token>
-    const authHeader = req.headers['autorizacion'];
+    const authHeader = req.headers.authorization;
     //si no viene el header no hay sesion -> rechazamos la peticion
     if(!authHeader){
         return res.status(401).json({mensaje:'No se envio un token de auntenticacion'})
     }
     //authHeader tiene el formato "Bearer eyJhbGciOi" 
     // nos quedamos con la segunda parte el token real
-    const token = authHeader.split(' ')[1];
+    const [scheme, token, ...extraParts] = authHeader.split(' ');
     //si el header vino mal formado pro ejemplo son las palabras bearer
     //el token queda unefined tampoco dejamos pasar la peticion 
-    if(!token){
+    if (scheme?.toLowerCase() !== 'bearer' || !token || extraParts.length > 0) {
         return res.status(401).json({mensaje: 'formato de token invalido'});
     }
     //todo lo que pueda fallar (token invalido expirado alterado)se maneja dentro de este try/catch

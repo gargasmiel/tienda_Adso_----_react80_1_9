@@ -8,11 +8,11 @@ el usuario en mysql  comparar la contraseña
 */
 
 //LIBRERIA PARA ENCRIPTAR  y comparar la contraseña
-const bcrypt =require('bcrypt');
+const bcrypt = require('bcryptjs');
 //librebria para crear (frimar) tokens jwt de sesion
 const jwt =require('jsonwebtoken');
 //pool para conexiones mysql configurado en config/db.js
-const pool =require('../config/bd');
+const pool = require('../config/db');
 //carga las variables de .env(JWT_SECRET, JWT_EXPIRES_IN)
 require('dotenv').config();
 
@@ -35,7 +35,8 @@ async function login(req, res) {
     //usamos "?" en la consulta (no contatenamos el email directo )
     //para evitar la inyeccion sql: mysql2 se encarga de escaparlo
     const [filas] = await pool.query(
-        'select id, nombre, email, password, rol, estado from usuarios where email = ? limit 1, ', [email]
+        'SELECT id, nombre, email, password, rol, estado FROM usuarios WHERE email = ? LIMIT 1',
+        [email]
     );
     // si no encontro ninguna fila, el correo no existe
     if (filas.length ===0){
@@ -48,9 +49,9 @@ async function login(req, res) {
     const usuario = filas[0];
     //si el usuario fue desactivado no dejamos iniciar sesion
     //aunque la contraseña sea correcta 
-    if (usuario.estado ===0){
+    if (Number(usuario.estado) === 0) {
         return res.status(403).json({
-            message: 'este usuario esta desactivado contacte al administrador'
+            mensaje: 'Este usuario esta desactivado; contacte al administrador'
         });
     }
 
@@ -63,8 +64,8 @@ async function login(req, res) {
     const passwordcorrecta = await bcrypt.compare (password, usuario.password);
     if (!passwordcorrecta){
         return res.status(401).json({
-            message:'correo o contraseña incorrectos'
-        })
+            mensaje: 'Correo o contraseña incorrectos'
+        });
         }
         /*
          * genera un token jwt que el frontend guarda para
@@ -91,7 +92,7 @@ async function login(req, res) {
     //cualquier error inesperado (por ejemplo en mysql este pagado)
     //cae aqui en vez de tumbar el servidor 
     console.error('error login:', error);
-    return res.status(500).json({mensaje:'error del servidor al iniciar sesion'});
+    return res.status(500).json({ mensaje: 'Error del servidor al iniciar sesion' });
 
     
 
@@ -103,8 +104,6 @@ async function login(req, res) {
 //verificacion de token confirmo que el token es valido
 async function perfil(req, res) {
     return res.json({usuario:req.usuario});
-
-    
 }
 //exportamos ambas funciones para authroutes.js pueda contactarlas 
 //con las urls correspondientes

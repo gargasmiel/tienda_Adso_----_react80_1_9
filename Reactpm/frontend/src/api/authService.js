@@ -6,7 +6,6 @@
 */
 //instancia de axios ya configurada con la url dle backend y el token 
 import axiosClient from "./axioClient";
-import axios from "./axioClient";
 
 //envia email y password al backend 
 //responde con {token, usuario} si no axios lanza un error
@@ -20,8 +19,6 @@ export async function iniciarSesion(email, password) {
 //pide al backend los datos del usuario dueño del token actual
 //sirve por ejemplo para validar sesion cuando carga la pagina
 export async function obtenerperfil() {
-    const respuesta = await axiosClient.get
-    ('/auth/perfil');
+    const respuesta = await axiosClient.get('/auth/perfil');
     return respuesta.data;
-    
 }

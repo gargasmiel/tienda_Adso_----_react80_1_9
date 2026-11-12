@@ -11,7 +11,7 @@ const cors = require("cors");
 //lee el archivo .env y carga susvalores en process.env
 require("dotenv").config();
 //importemos el router con los endpoints de la api
-const authrouter = require("./routes/auth.routes");
+const authrouter = require("./routes/authroutes");
 //creemos la applicacion express
 const app = express();
 // cors() permite que el frontend (que corre en otro puerto)
@@ -40,8 +40,6 @@ const PORT = process.env.PORT || 4000;
 
 //arranca el servidor apartir de aqui express qeuda escuchando
 //peticiones HTTP en el puerto definido
-app.listen(PORT, () => 
-    //este callcack se ejecuta  una vez el servidor esta corriendo y escuchando peticiones    
-    {
+app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
