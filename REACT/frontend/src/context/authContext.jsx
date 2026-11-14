@@ -38,7 +38,7 @@ export function AuthProvider({ children }) {
     }
 
     return (
-        <AuthContext.Provider value={{ usuario, cargando, login, logout }}>
+        <AuthContext.Provider value={{ usuario, estaAutenticado: Boolean(usuario), cargando, login, logout }}>
             {children}
         </AuthContext.Provider>
     );

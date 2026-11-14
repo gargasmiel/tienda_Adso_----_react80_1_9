@@ -1,7 +1,7 @@
 /**
 *esqueleto visual que comparten todas las paginas del panel
 * (inicio, usuarios, categorias, subcategorias, productos):
-* sidebar ala izquierda + topbar arriba + el contenido de la 
+* sidebar ala izquierda + topbar arriba + el contenido de la
 * pagina actual en el medio(a travez de <Outle/>)
  */
 
@@ -9,7 +9,7 @@
 import { Outlet } from "react-router-dom";
 //menu lateral de navegacion
 import Sidebar from '../components/common/Sidebar';
-//barra superior con usuario y boton de salir 
+//barra superior con usuario y boton de salir
 import Topbar from '../components/common/Topbar';
 
 //no recibe props: se usa como "element" de la ruta / dashboard en App.jsx
