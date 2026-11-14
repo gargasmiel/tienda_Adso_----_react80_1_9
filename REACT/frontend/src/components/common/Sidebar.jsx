@@ -8,7 +8,7 @@
 
 const opcionesMenu =[
     {texto: 'Inicio', ruta:'/dashboard', icono:'bi-house-door', fin: true},
-    {texto: 'Usuarios', ruta:'/dashboard/usuario', icono:'bi-people'},
+    {texto: 'Usuarios', ruta:'/dashboard/usuarios', icono:'bi-people'},
     {texto: 'Categorias', ruta:'/dashboard/categorias', icono:'bi-tags'},
     {texto: 'Subcategorias', ruta:'/dashboard/subcategorias', icono:'bi-diagram-3'},
     {texto: 'Productos', ruta:'/dashboard/productos', icono:'bi-box-seam'}

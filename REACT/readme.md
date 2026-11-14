@@ -59,7 +59,7 @@ react solo se encarga de la interfaz grafica para el resto utilizamos:
 -1 Verificar que tenga node.js (node -v) cmd
 -2 desde la raiz del proyecto crea el proyecto react y vite 
 cd
--3 Entre a la carpeta frontend  con `cd fontend` e instale npm `npminstall`
+-3 Entre a la carpeta frontend  con `cd frontend` e instale npm `npminstall`
 -4 instale las librerias: `npm install bootstrap, bootstrap-icons, react-router-dom axios`
 -5 empaquetador optimisa y junta todo el css en un solo archivo al hacer `npm run build`
 -6 Instalar las dependependencias del backend y el frontend al tiempo `npm run install:all`
@@ -68,9 +68,9 @@ cd
 --8.1 `npm install express msql2 bcryptjs jsonwebtoken cors dotenv`
 --8.2 crea .env dentro de backend 
 --8.3 crea src/config/db.js
---8.4 crea src/middlewares/verificarToken.js valida el token jwt en rutas protegidas
---8.5 crea src/controllers/auth.controller.js es la logica de inicio de sesion  
---8.6 Crea src/routes/auth.routes.js (conecta las rutas con el controlador) 
+--8.4 crea src/middlewares/VerificarToken.js valida el token jwt en rutas protegidas
+--8.5 crea src/controllers/authcontroller.js es la logica de inicio de sesion  
+--8.6 Crea src/routes/authroutes.js (conecta las rutas con el controlador) 
 --8.7 crea src/server.js (arma la app de express)
 --8.8 crea en backend seed.js (crea el usuario del administrador)
 -9 crear las siguientes carpetas en frontend
@@ -82,10 +82,10 @@ cd
 --10 
 
 --10.1 frontend/src/routes/ProctetedRoutes.jsx
-    --frontend/src/layoust/DahsboardLayout. jsx
-    -- ""/""/components/Common/Sidebar.jsx
-    -- ""/""/components/Common/Topbar.jsx
-    --""/""/pages/DashboardHome.jsx
-    --""/""/NotFoundpage.jsx
-    --editar ""/""/app.jsx
+    --frontend/src/layoust/DahsboardLayout.jsx
+    --frontend/src/components/common/Sidebar.jsx
+    --frontend/src/components/common/Topbar.jsx
+    --frontend/src/pages/DashboardHome.jsx
+    --frontend/src/pages/NotFoundpage.jsx
+    --editar frontend/src/App.jsx
     

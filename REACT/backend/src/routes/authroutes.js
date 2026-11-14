@@ -11,7 +11,7 @@ const router = express.Router();
 //funciones controladas con la logica real de cada endpoint
 const { login, perfil } = require('../controllers/authcontroller');
 //middleware que protege rutas exigiendo un token jwt valido
-const verificartoken = require('../middlewares/verificartoken');
+const verificartoken = require('../middlewares/VerificarToken');
  
 //post/api/auth/login = iniciar sesion (ruta publica) 
 
