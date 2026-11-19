@@ -57,7 +57,7 @@ function LoginPage() {
         
     }
     return (
-    <div className="login-wraper">
+    <div className="login-wrapper">
         <div className="card shadow-lg border-0" style={{ width: "100%", maxWidth: 400 }}>
             <div className="card-body p-4 p-md-5">
 

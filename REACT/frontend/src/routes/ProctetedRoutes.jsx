@@ -19,9 +19,9 @@ function ProtectedRoutes() {
 
     if(cargando){
         return (
-            <div classname="d-flex justify-content-center   align-items-center vh-100">
-                <div classname="spinner-border text-primary" role="status">
-                    <span classname=" visually-hidden">Cargando...</span>
+            <div className="d-flex justify-content-center align-items-center vh-100">
+                <div className="spinner-border text-primary" role="status">
+                    <span className="visually-hidden">Cargando...</span>
                 </div>
             </div>
 

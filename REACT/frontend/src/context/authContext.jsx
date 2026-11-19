@@ -51,3 +51,5 @@ export function useAuth() {
     }
     return contexto;
 }
+
+export default AuthContext;

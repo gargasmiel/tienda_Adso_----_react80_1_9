@@ -5,9 +5,7 @@
 *de leer y reutilizar
 */
 //instancia de axios ya configurada con la url dle backend y el token 
-import axiosClient from "./axioClient";
-import axios from "./axioClient";
-
+import axiosClient from "./axiosClient";
 //envia email y password al backend 
 //responde con {token, usuario} si no axios lanza un error
 //que el componente que llama debe capturar con try/catch
